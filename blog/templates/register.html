@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registrarse</h2>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="error-message">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('register') }}" method="POST" enctype="multipart/form-data">
+            <label for="full_name">Nombre Completo:</label>
+            <input type="text" id="full_name" name="full_name" required><br>
+
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required pattern=".{3,}">
+            <small>Minimo 3 caracteres</small><br>
+
+            <label for="phone">Numero de Telefono:</label>
+            <input type="tel" id="phone" name="phone" required pattern="\d{10}">
+            <small>Formato: 10 digitos</small><br>
+
+            <label for="facebook_profile">Perfil de Facebook:</label>
+            <input type="url" id="facebook_profile" name="facebook_profile"><br>
+
+            <label for="instagram_profile">Perfil de Instagram:</label>
+            <input type="url" id="instagram_profile" name="instagram_profile"><br>
+
+            <label for="profile_image">Imagen de Perfil:</label>
+            <input type="file" id="profile_image" name="profile_image" accept="image/*" required><br>
+
+            <label for="password">Contrasena:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+</body>
+</html>

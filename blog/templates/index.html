@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="header">
+        
+    </div>
+
+    <div class="form-container">
+        <h1>Bienvenido a la plataforma de blogs</h1>
+        <h2>Iniciar Sesión</h2>
+        <form action="{{ url_for('login') }}" method="POST">
+            <input type="text" name="username" placeholder="Nombre de usuario" required><br>
+            <input type="password" name="password" placeholder="Contraseña" required><br>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+</body>
+</html>

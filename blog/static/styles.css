@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+    margin: 0;
+    background-color: #ff9dff; /* Fondo claro */
+}
+
+.form-container,
+.register-container {
+    background-color: #d968ff; /* Fondo para el recuadro */
+    border: 1px solid #ccc; /* Bordes grises */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 9px; /* Espaciado interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 490px; /* Ancho del recuadro */
+    text-align: center; /* Centrar el texto dentro del recuadro */
+}
+
+h2 {
+    margin: 0 0 15px; /* Margen inferior para el título */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="url"] {
+    width: 100%; /* Ancho completo */
+    padding: 9px; /* Espaciado interno */
+    margin: 18px 0; /* Margen superior e inferior */
+    border: 1px solid #ccc; /* Bordes grises */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+button {
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin bordes */
+    padding: 9px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s; /* Transición suave */
+    width: 90%; /* Botón ocupa todo el ancho del recuadro */
+}
+
+    button:hover {
+        background-color: #0056b3; /* Color de fondo más oscuro al pasar el cursor */
+    }
+
+.error-message {
+    color: red; /* Color rojo para mensajes de error */
+    margin-bottom: 15px; /* Margen inferior */
+}
+
+input[type="file"] {
+    background-color: #d968ff; /* Fondo para el recuadro */
+    border: 1px solid #ccc; /* Bordes grises */
+    border-radius: 3px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 450px; /* Ancho del recuadro */
+}
+
+/* Nuevas reglas para el recuadro de cada publicación */
+.blogs-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea */
+    justify-content: space-between; /* Espacio uniforme entre columnas */
+    width: 100%; /* Asegura que use todo el ancho */
+}
+
+.blog-post-container {
+    background-color: #d968ff; /* Fondo para el recuadro */
+    border: 1px solid #ccc; /* Bordes grises */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin: 10px; /* Espaciado entre publicaciones */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    flex: 1 1 calc(45% - 20px); /* Ocupa el 45% del ancho menos márgenes */
+    max-width: 45%; /* Asegura que no se desborde */
+}
+
+.blog-post {
+    margin: 0; /* Asegúrate de que no haya márgenes adicionales */
+    text-align: left; /* Alinear texto a la izquierda dentro del recuadro */
+}
+
+.blog-image {
+    max-width: 100%; /* Asegura que la imagen no desborde el recuadro */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.share-buttons {
+    margin-top: 10px; /* Espaciado superior para los botones de compartir */
+}

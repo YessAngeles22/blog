@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="header">
+        <h1>Perfil de {{ session.username }}</h1>
+        <div class="auth-links">
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="{{ profile_image }}" alt="Foto de perfil" class="profile-image">
+            <h2 class="profile-name">{{ full_name }}</h2>
+            <div class="profile-links">
+                {% if facebook %}
+                <p><a href="{{ facebook }}" target="_blank">Perfil de Facebook</a></p>
+                {% endif %}
+                {% if instagram %}
+                <p><a href="{{ instagram }}" target="_blank">Perfil de Instagram</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

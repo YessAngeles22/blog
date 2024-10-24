@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Crear Nuevo Blog</h2>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="error-message">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('new_blog') }}" method="POST" enctype="multipart/form-data">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="content">Contenido:</label>
+            <textarea id="content" name="content" rows="5" required></textarea><br>
+
+            <label for="image">Imagen:</label>
+            <input type="file" id="image" name="image" accept="image/*"><br>
+
+            <button type="submit">Publicar</button>
+        </form>
+    </div>
+
+    <div id="blogs-container">
+        <h2>Blogs Publicados</h2>
+        <div class="blogs-list">
+            {% for post in posts %}
+            <div class="blog-post-container">
+                <!-- Recuadro para cada blog -->
+                <div class="blog-post">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content }}</p>
+                    <p><strong>Autor:</strong> <a href="{{ url_for('profile', username=post.author) }}">{{ post.author }}</a></p>
+                    {% if post.image_url %}
+                    <img src="{{ post.image_url }}" alt="Imagen del blog" class="blog-image"><br>
+                    {% endif %}
+                    <small>Publicado en: {{ post.created_at }}</small><br>
+
+                    <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url_root }}blog/{{ post.id }}" target="_blank">
+                            <img src="{{ url_for('static', filename='images/face.jpeg') }}" alt="Compartir en Facebook" style="width: 39px;">
+                        </a>
+
+                        <a href="https://instagram.com/" target="_blank">
+                            <img src="{{ url_for('static', filename='images/insta.jpeg') }}" alt="Compartir en Instagram" style="width: 32px;">
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- Fin del recuadro -->
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
